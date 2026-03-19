@@ -1,6 +1,7 @@
 DROP TABLE IF EXISTS LesAuteurs;
 DROP TABLE IF EXISTS LesLivres;
 DROP TABLE IF EXISTS EcritPar;
+DROP TABLE IF EXISTS LesAmis;
 
 
 
@@ -92,3 +93,30 @@ INSERT INTO EcritPar VALUES (6, 115);
 
 -- Paul Giran (idA: 10)
 INSERT INTO EcritPar VALUES (10, 116);
+
+
+
+CREATE TABLE LesAmis(
+    idAm int,
+    nom varchar(20),
+    prenom varchar(20),
+    nationalite varchar(20),
+    email varchar(20),
+    anNais int,
+    CONSTRAINT PK_Amis PRIMARY KEY(idAm)
+);
+
+INSERT INTO LesAmis VALUES (200,'Chu','Quang','vietnamien','quang.chu2410@gmail.com',2003);
+INSERT INTO LesAmis VALUES (201,'Klymenchuk','Danylo','ukrainien','Dany.klymen@gmail.com',2004);
+INSERT INTO LesAmis VALUES (202,'Paller','Boldizsar','hongrie','boldi.thedump@gmail.com',2003);
+INSERT INTO LesAmis VALUES (203,'Nguyen','Khanh','vietnamien','canaximui1302@gmail.com',2004);
+INSERT INTO LesAmis VALUES (204,'Melgren','William','Francais','willymel2201@gmail.com',2005);
+INSERT INTO LesAmis VALUES (205,'Dang','Khanh','vietnamien','khanh.dang@gmail.com',2001);
+INSERT INTO LesAmis VALUES (206,'Phan','Dat','vietnamien','dat.urphan@gmail.com',2000);
+INSERT INTO LesAmis VALUES (207,'Gajawani','Kartik','francais','kartik.Gaja@gmail.com',2004);
+INSERT INTO LesAmis VALUES (208,'Do','Hai','vietnamien','boldi.thedump@gmail.com',2003);
+
+
+select * from LesAuteurs;
+select * from LesLivres;
+select * from EcritPar;
