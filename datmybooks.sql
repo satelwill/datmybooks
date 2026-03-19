@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS LesAuteurs;
 DROP TABLE IF EXISTS LesLivres;
 DROP TABLE IF EXISTS EcritPar;
 DROP TABLE IF EXISTS LesAmis;
+DROP TABLE IF EXISTS LesEmprunts;
 
 
 
@@ -117,6 +118,40 @@ INSERT INTO LesAmis VALUES (207,'Gajawani','Kartik','francais','kartik.Gaja@gmai
 INSERT INTO LesAmis VALUES (208,'Do','Hai','vietnamien','boldi.thedump@gmail.com',2003);
 
 
+CREATE TABLE LesEmprunts(
+    idL int,
+    idAm int,
+    dateEmprunt varchar(20),
+    dateRetour varchar(20),
+    CONSTRAINT PK_Emprunts PRIMARY KEY(idL,idAm,dateEmprunt),
+    CONSTRAINT PK_Emprunts_Livres FOREIGN KEY(idL) REFERENCES LesLivres(idL),
+    CONSTRAINT PK_Emprunts_Amis FOREIGN KEY(idAm) REFERENCES LesAmis(idAm)
+);
+
+INSERT INTO LesEmprunts VALUES (116, 200, '2025-10-01', '2025-10-15');
+INSERT INTO LesEmprunts VALUES (109, 201, '2025-11-05', '2025-11-20');
+INSERT INTO LesEmprunts VALUES (107, 202, '2025-12-01', NULL);
+INSERT INTO LesEmprunts VALUES (104, 203, '2026-01-10', '2026-02-01');
+INSERT INTO LesEmprunts VALUES (111, 204, '2026-02-15', NULL);
+INSERT INTO LesEmprunts VALUES (106, 205, '2026-02-20', '2026-03-05');
+INSERT INTO LesEmprunts VALUES (115, 206, '2026-03-01', NULL);
+INSERT INTO LesEmprunts VALUES (108, 207, '2026-03-10', NULL);
+INSERT INTO LesEmprunts VALUES (114, 208, '2025-09-15', '2025-10-10');
+INSERT INTO LesEmprunts VALUES (100, 200, '2026-03-15', NULL);
+INSERT INTO LesEmprunts VALUES (101, 201, '2025-12-10', '2025-12-25');
+INSERT INTO LesEmprunts VALUES (102, 202, '2026-01-05', '2026-01-15');
+INSERT INTO LesEmprunts VALUES (103, 203, '2026-02-10', '2026-02-28');
+INSERT INTO LesEmprunts VALUES (105, 204, '2025-11-01', '2025-12-01');
+INSERT INTO LesEmprunts VALUES (110, 205, '2026-01-20', '2026-02-10');
+INSERT INTO LesEmprunts VALUES (112, 206, '2025-10-20', '2025-11-15');
+INSERT INTO LesEmprunts VALUES (113, 207, '2025-11-25', '2025-12-20');
+INSERT INTO LesEmprunts VALUES (106, 208, '2026-03-10', NULL);
+INSERT INTO LesEmprunts VALUES (104, 200, '2026-02-20', NULL);
+INSERT INTO LesEmprunts VALUES (116, 201, '2026-03-05', NULL);
+
+
 select * from LesAuteurs;
 select * from LesLivres;
 select * from EcritPar;
+select * from LesAmis;
+select * from LesEmprunts;
